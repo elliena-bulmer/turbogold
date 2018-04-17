@@ -23,7 +23,7 @@ class CValidationState;
 static const int64_t DARKSEND_COLLATERAL = (50*COIN);
 static const int64_t DARKSEND_POOL_MAX = (4999.99*COIN);
 
-static const int64_t TARGET_SPACING = 2 * 60; // 3 min per Block
+static const int64_t TARGET_SPACING = 3 * 60; // 3 min per Block
 static const int64_t TARGET_SPACING2 = 2 * 60; // 2 min per Block
 static const int64_t STAKE_TIMESPAN_SWITCH_TIME = 1508858115;
 static const int64_t STAKE_TIMESPAN_SWITCH_TIME1 = 1509555600; //1 Nov 2017 17:00:00 GMT
