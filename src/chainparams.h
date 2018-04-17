@@ -70,6 +70,7 @@ public:
     int RPCPort() const { return nRPCPort; }
     int LastPOWBlock() const { return nLastPOWBlock; }
     int POSStartBlock() const { return nPOSStartBlock; }
+    bool POWBlockLimitUsed() const { return powBlockLimitUsed; }
     int PoolMaxTransactions() const { return nPoolMaxTransactions; }
     std::string DarksendPoolDummyAddress() const { return strDarksendPoolDummyAddress; }
     //std::string SporkKey() const { return strSporkKey; }
@@ -94,6 +95,7 @@ protected:
     std::string strDarksendPoolDummyAddress;
     //std::string strSporkKey;
     //std::string strMasternodePaymentsPubKey;
+    bool powBlockLimitUsed;
 };
 
 /**

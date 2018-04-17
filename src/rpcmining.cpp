@@ -253,7 +253,7 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(-10, "Turbogold is downloading blocks...");
 
-    if (pindexBest->nHeight >= Params().LastPOWBlock())
+    if (Params().POWBlockLimitUsed() == true && pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -387,7 +387,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Turbogold is downloading blocks...");
 
-    if (pindexBest->nHeight >= Params().LastPOWBlock())
+    if (Params().POWBlockLimitUsed() == true && pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -539,7 +539,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     //if (IsInitialBlockDownload())
     //    throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Turbogold is downloading blocks...");
 
-    if (pindexBest->nHeight >= Params().LastPOWBlock())
+    if (Params().POWBlockLimitUsed() == true && pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     // Update block

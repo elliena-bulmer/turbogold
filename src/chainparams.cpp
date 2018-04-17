@@ -80,12 +80,12 @@ public:
 		std::vector<CTxOut> vout;
 		vout.resize(1);
 		vout[0].SetEmpty();
-		CTransaction txNew(1, 1523935909, vin, vout, 0);
+		CTransaction txNew(1, 1523984352, vin, vout, 0);
 		genesis.vtx.push_back(txNew);
 		genesis.hashPrevBlock = 0;
 		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
 		genesis.nVersion = 1;
-		genesis.nTime = 1523935909;
+		genesis.nTime = 1523984352;
 		genesis.nBits = bnProofOfWorkLimit.GetCompact();
 		genesis.nNonce = 8517;
 
@@ -95,8 +95,8 @@ public:
         printf("genesis.hashMerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
 
-		//assert(genesis.hashMerkleRoot == uint256("0x2d7589221e328551d0b951678436cbf6ce24f82c400fa592dfe2cf00d5db321f"));
-		//assert(hashGenesisBlock == uint256("0x0000285700c77314f55a6246d130d9e754f643ea80bc899b74bfeedc69211548"));
+		assert(genesis.hashMerkleRoot == uint256("0xd6603019eb57d352ca22bb5f41e5495cf759d00d101ba108bcda5a9dd4468aff"));
+		assert(hashGenesisBlock == uint256("0x0000bdecba5f39144cf313ecee327d3b3310748ba1cba93b36313f2f0fc793e33b6f"));
 
 		base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 26);
 		base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
@@ -112,8 +112,8 @@ public:
 		//strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 		//strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 		strDarksendPoolDummyAddress = "CRaVnHZizkREBg6yBzcpy6TBLn4B5GbUva";
-		nLastPOWBlock = 20000000;
-		nPOSStartBlock = 1000;
+		nLastPOWBlock = 100;
+		nPOSStartBlock = 1;
 	}
 
 
@@ -154,7 +154,7 @@ public:
 		genesis.nBits = 520159231;
 		genesis.nNonce = 70685;
 
-//		assert(hashGenesisBlock == uint256("0x0000285700c77314f55a6246d130d9e754f643ea80bc899b74bfeedc69211548"));
+		assert(hashGenesisBlock == uint256("0x0000bdecba5f39144cf313ecee327d3b3310748ba1cba93b36313f2f0fc793e33b6f"));
 
 		vFixedSeeds.clear();
 		vSeeds.clear();
