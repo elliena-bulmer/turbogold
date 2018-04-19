@@ -56,13 +56,13 @@ public:
 		// The message start string is designed to be unlikely to occur in normal data.
 		// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 		// a large 4-byte int at any alignment.
-		pchMessageStart[0] = 0xb9;
-		pchMessageStart[1] = 0xba;
-		pchMessageStart[2] = 0xfb;
-		pchMessageStart[3] = 0x63;
+		pchMessageStart[0] = 0xa2;
+		pchMessageStart[1] = 0xbc;
+		pchMessageStart[2] = 0xfe;
+		pchMessageStart[3] = 0x67;
 		vAlertPubKey = ParseHex("04a966420eabbb8a7106385003fef77896538a382a0dcc389ff45f3c98751d9af423a066689757666259351198a8a2a628a1fd644c3232678c5845384c744ff8d7");
-		nDefaultPort = 45823;
-		nRPCPort = 47620;
+		nDefaultPort = 15802;
+		nRPCPort = 63921;
 		bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 
 		// Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -91,8 +91,8 @@ public:
 
 		hashGenesisBlock = genesis.GetHash();
 
-		LogPrintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-		LogPrintf("genesis.hashMerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		//LogPrintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+		//LogPrintf("genesis.hashMerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
 		assert(genesis.hashMerkleRoot == uint256("0x57d79e9c7483d8aa66881e57f030c5d360b43f3c4f09f70901f0da1ea651adcf"));
 		assert(hashGenesisBlock == uint256("0x00008184ae78eb4de72279df833d162177d07c5eaf91eee0cc481cf5823bcca514c3"));
@@ -139,14 +139,14 @@ public:
 		// The message start string is designed to be unlikely to occur in normal data.
 		// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 		// a large 4-byte int at any alignment.
-		pchMessageStart[0] = 0x1d;
-		pchMessageStart[1] = 0x7e;
-		pchMessageStart[2] = 0xa6;
-		pchMessageStart[3] = 0x2c;
+		pchMessageStart[0] = 0xb2;
+		pchMessageStart[1] = 0xbf;
+		pchMessageStart[2] = 0xfe;
+		pchMessageStart[3] = 0x67;
 		bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 		vAlertPubKey = ParseHex("04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7");
-		nDefaultPort = 20114;
-		nRPCPort = 20115;
+		nDefaultPort = 15803;
+		nRPCPort = 63922;
 		strDataDir = "testnet";
 
 		// Modify the testnet genesis block so the timestamp is valid for a later start.
