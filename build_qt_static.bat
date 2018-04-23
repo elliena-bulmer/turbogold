@@ -3,3 +3,4 @@ cd "%cd%"
 qmake "USE_UPNP=1" "USE_IPV6=1" Turbogold.pro
 make -f Makefile.Release -j4
 pause
+build_qt_static.bat

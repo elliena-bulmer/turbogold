@@ -1359,7 +1359,7 @@ bool maxSupplyReached() {
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 {
-
+int x = 9;
     // Force coin cap - return only fees
     if (maxSupplyReached()) {
       return nFees;
