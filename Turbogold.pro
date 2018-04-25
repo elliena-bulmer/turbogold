@@ -485,6 +485,17 @@ SOURCES += src/qt/qrcodedialog.cpp
 FORMS += src/qt/forms/qrcodedialog.ui
 }
 
+contains(BITCOIN_QT_TEST, 1) {
+SOURCES += src/qt/test/test_main.cpp \
+    src/qt/test/maintests.cpp
+HEADERS += src/qt/test/maintests.h
+DEPENDPATH += src/qt/test
+QT += testlib
+TARGET = Turbogold-qt_test
+DEFINES += BITCOIN_QT_TEST
+  macx: CONFIG -= app_bundle
+}
+
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate

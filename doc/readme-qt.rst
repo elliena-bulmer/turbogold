@@ -189,8 +189,7 @@ BOOST INSTALL:
 >  Download boost 1_55_0 to your deps folder from here http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.7z/download
 > cd C:\deps\boost_1_55_0\
 > ./bootstrap.bat mingw
-> ./b2 --build-type=complete --with-test --with-chrono --with-filesystem --with-program_options --with-system --with-thread toolset=gcc
-variant=release link=static threading=multi runtime-link=static stage
+> ./b2 --build-type=complete --with-test --with-chrono --with-filesystem --with-program_options --with-system --with-thread toolset=gcc variant=release link=static threading=multi runtime-link=static stage
 
 OPENSSL INSTAL:
 > wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
