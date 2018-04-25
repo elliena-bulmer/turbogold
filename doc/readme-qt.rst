@@ -178,6 +178,7 @@ $ make -j <threads> && make install
 
 Download miniupnpc-1.9 and extract to /c/devel
 
+download mminiupnpc-1.9.20150206.tar
 > cd /c/devel/miniupnpc-1.9
 Edi Makefile.mingw change line 72 to "wingen..." --> ./wingenminiupnpcstrings"
 > make -f Makefile.mingw init upnpc-static
@@ -188,7 +189,7 @@ BOOST INSTALL:
 >  Download boost 1_55_0 to your deps folder from here http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.7z/download
 > cd C:\deps\boost_1_55_0\
 > ./bootstrap.bat mingw
-> ./b2 --build-type=complete --with-chrono --with-filesystem --with-program_options --with-system --with-thread toolset=gcc
+> ./b2 --build-type=complete --with-test --with-chrono --with-filesystem --with-program_options --with-system --with-thread toolset=gcc
 variant=release link=static threading=multi runtime-link=static stage
 
 OPENSSL INSTAL:

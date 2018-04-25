@@ -2,23 +2,28 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+CXX ?= g++
+
 USE_UPNP:=-
 USE_WALLET:=1
 USE_LOWMEM:=0
 
-BOOST_SUFFIX?=-mgw49-mt-s-1_57
+
+BOOST_SUFFIX?=-mgw73-mt-s-1_55
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"d:/project/Turbogold/include/boost-1_57" \
- -I"d:/project/Turbogold/include/miniupnpc" \
- -I"d:/project/Turbogold/include" \
- -I"d:/project/Turbogold"
+ -I"C:/devel/boost_1_55_0" \
+ -I"C:/devel/miniupnpc-1.9" \
+ -I"C:/devel/db-4.8.30" \
+ -I"C:/devel/openssl-1.0.2o/include"
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
- -L"d:/project/Turbogold/lib" \
- -L"d:/project/Turbogold"
+ -L"C:/devel/boost_1_55_0/stage/lib" \
+ -L"C:/devel/miniupnpc-1.9" \
+ -L"C:/devel/db-4.8.30/" \
+ -L"C:/devel/openssl-1.0.2o" \
 
 LIBS= \
  -l leveldb \
@@ -31,11 +36,12 @@ LIBS= \
  -l db_cxx \
  -l ssl \
  -l secp256k1 \
- -l crypto
+ -l crypto \
+ -l shlwapi
 
-DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
+DEFS=-D_MT -DWIN32 -D_WINDOWS -DWIN32_LEAN_AND_MEAN -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
-CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -fpermissive $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
+CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
@@ -128,12 +134,15 @@ endif
 
 all: Turbogoldd.exe
 
+test check: test_Turbogold.exe FORCE
+	BOOST_TEST_LOG_LEVEL=all ./test_Turbogold.exe
+
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a -l shlwapi
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 OBJS += obj/txdb-leveldb.o
 leveldb/libleveldb.a:
-	@echo "Building LevelDB ..."; cd leveldb; chmod 755 *;make libleveldb.a libmemenv.a; cd ..;
+	@echo "Building LevelDB ..."; cd leveldb; chmod 755 *;make libleveldb.a libmemenv.a TARGET_OS=NATIVE_WINDOWS; cd ..;
 obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 obj/%.o: %.cpp $(HEADERS)
@@ -144,11 +153,19 @@ obj/%.o: %.c $(HEADERS)
 
 Turbogoldd.exe: $(OBJS:obj/%=obj/%)
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
-
+	
+TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
+	
+obj-test/%.o: test/%.cpp $(HEADERS)
+	$(CXX) -c $(TESTDEFS) $(CFLAGS) -o $@ $<
+	
+test_Turbogold.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
+	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework$(BOOST_SUFFIX) $(LIBS)
+	
 clean:
-	-rm -f obj/*.o
-	-rm -f Turbogoldd.exe
+	-rm -f obj/*.o obj-test/*
+	-rm -f Turbogoldd.exe test_Turbogold.exe
 	-rm -f obj/build.h
-	cd leveldb && TARGET_OS=NATIVE_WINDOWS $(MAKE) clean && cd ..
+	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
 
 FORCE:
