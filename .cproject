@@ -23,10 +23,10 @@
 							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1842428641" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.798070593" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
 								<option id="gnu.cpp.compiler.option.include.paths.733934916" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;C:\devel\qt-everywhere-opensource-src-5.9.2&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\devel\boost_1_55_0&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\devel\db-4.8.30\build_unix&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\devel\openssl-1.0.2o\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\devel\qt5.9.2-static\include&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1040567290" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>

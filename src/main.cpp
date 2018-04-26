@@ -1353,6 +1353,9 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 }
 
 bool maxSupplyReached() {
+	if (!pindexBest)
+		return false;
+
 	return pindexBest->nMoneySupply >= MAX_MONEY;
 }
 

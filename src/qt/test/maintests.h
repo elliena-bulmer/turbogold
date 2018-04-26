@@ -5,6 +5,7 @@
 #include <QTest>
 #include <QObject>
 
+#include "../../wallet.h"
 #include "../../main.h"
 
 class MainTests : public QObject
