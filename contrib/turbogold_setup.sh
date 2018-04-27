@@ -16,7 +16,7 @@ fallocate -l 3G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-echo -e “/swapfile none swap sw 0 0 \n” >> /etc/fstab
+echo -e "/swapfile none swap sw 0 0 \n" >> /etc/fstab
 sleep 1
 echo '*** Done 1/5 ***'
 sleep 1
