@@ -7,13 +7,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Turbogold-Qt</string>
+	<string>Turbogold</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>Turbogold-Qt</string>
+	<string>Turbogold</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.Turbogold.Turbogold-Qt</string>
+	<string>co.Turbogold.Turbogold</string>
         <key>CFBundleURLTypes</key>
         <array>
           <dict>
