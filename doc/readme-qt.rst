@@ -173,8 +173,14 @@ cd /c/devel/
 $ wget http://download.qt.io/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.zip
 $ unzip qt-everywhere-opensource-src-5.9.2.zip
 $ cd qt-everywhere-opensource-src-5.9.2
-$ CXXFLAGS="--Wno-deprecated-declarations" ./configure -static -release -opensource -confirm-license -platform win32-g++ -prefix "C:\devel\qt5.9.2-static" -nomake examples -nomake tests -nomake tools -opengl desktop -no-angle -make libs -qt-zlib -qt-libpng -qt-libjpeg -qt-freetype -qt-pcre -sql-sqlite
+$ CXXFLAGS="--Wno-deprecated-declarations" ./configure -static -release -opensource -confirm-license -platform win32-g++ -prefix "C:\devel\qt5.9.2-static" -nomake examples -nomake tools -opengl desktop -no-angle -make libs -qt-zlib -qt-libpng -qt-libjpeg -qt-freetype -qt-pcre -sql-sqlite
 $ make -j <threads> && make install
+
+for qt4.8.6:
+
+> ugly hack: cp C:\msys64\usr\bin\make.exe C:\msys64\usr\bin\mingw32-make.exe
+> (in win cmd): ./configure -release -opensource -confirm-license -static -no-sql-sqlite -no-qt3support -no-opengl -qt-zlib -no-gif -qt-libpng -qt-libmng -no-libtiff -qt-libjpeg -no-dsp -no-vcproj -no-openssl -no-dbus -no-phonon -no-phonon-backend -no-multimedia -no-audio-backend -no-webkit -no-script -no-scripttools -no-declarative -no-declarative-debug -qt-style-windows -qt-style-windowsxp -qt-style-windowsvista -nomake demos -nomake examples -platform win32-g++
+> make -j4
 
 Download miniupnpc-1.9 and extract to /c/devel
 

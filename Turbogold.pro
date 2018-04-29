@@ -35,6 +35,8 @@ win32 {
   OPENSSL_LIB_PATH=C:/devel/openssl-1.0.2o
   MINIUPNPC_INCLUDE_PATH=C:/devel/miniupnpc-1.9
   MINIUPNPC_LIB_PATH=C:/devel/miniupnpc-1.9
+  QRENCODE_INCLUDE_PATH=C:/devel/qrencode-3.4.4
+  QRENCODE_LIB_PATH=C:/devel/qrencode-3.4.4/.libs
 }
 
 macx {

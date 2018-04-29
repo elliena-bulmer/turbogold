@@ -82,3 +82,22 @@ DOS prompt:
 cd \Beetle\src
 mingw32-make -f makefile.mingw
 strip beetled.exe
+
+latest win build instructions:
+
+2f. libpng
+Download and extract http://prdownloads.sourceforge.net/libpng/libpng-1.6.14.tar.gz?download to your deps folder. Extract.
+In msys shell run 
+Code:
+cd /c/deps/libpng-1.6.14
+configure --enable-static --disable-shared --without-tools
+make # will show an error, open the mentioned broken file, remove the unneccessary newlines!
+cp .libs/libpng16.a .libs/libpng.a
+
+2g. qrencode
+Download and extract http://fukuchi.org/works/qrencode/qrencode-3.4.4.tar.gz to your deps folder.
+In msys shell run 
+Code:
+cd /c/deps/qrencode-3.4.4
+
+./configure --enable-static --enable-shared --without-tools
