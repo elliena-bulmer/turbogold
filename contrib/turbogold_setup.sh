@@ -27,7 +27,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install git libgmp3-dev automake build-essential libtool autotools-dev autoconf pkg-config libssl-dev libboost-all-dev libevent-dev nano -y
 sudo apt-get install software-properties-common -y
-sudo apt-add-repository ppa:bitcoin/bitcoin
+sudo apt-add-repository ppa:bitcoin/bitcoin -y
 sudo apt-get update -y
 sudo apt-get install libdb4.8-dev -y
 sudo apt-get install libdb4.8++-dev -y
@@ -58,7 +58,7 @@ sleep 2
 echo '*** Step 5/5 ***'
 echo '*** Server Start and Wallet Sync ***'
 ./Turbogoldd -daemon
-sleep1
+sleep 1
 echo 'Please wait for blockchain to sync before starting your alias, and enjoy your Masternode!'
 sleep 1
 echo '*** Done 5/5 ***'
