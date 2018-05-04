@@ -34,7 +34,8 @@ sudo apt-get install libminiupnpc-dev -y
 echo '*** Done 2/5 ***'
 sleep 1
 echo '*** Step 3/5 ***'
-echo '*** Cloning and Compiling Turbogold Wallet ***'cd
+echo '*** Cloning and Compiling Turbogold Wallet ***'
+cd
 git clone https://github.com/zero24x/turbogold
 cd turbogold/src
 make -f makefile.unix
