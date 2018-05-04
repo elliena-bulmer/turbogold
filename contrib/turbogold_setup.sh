@@ -3,7 +3,6 @@
 # TurboGold Repo : https://github.com/zero24x/turbogold
 # !! THIS SCRIPT NEED TO RUN AS ROOT !!
 ######################################################################
-
 clear
 echo "*********** Welcome to the Turbogold (TBG) Masternode Setup Script ***********"
 echo 'This script will install all required updates & package for Ubuntu 14.04'
