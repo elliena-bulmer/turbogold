@@ -16,7 +16,7 @@ check_nodes()  {
   echo "****************************************************************************"
   echo "*    Ubuntu 14.04 is the recommended opearting system for this install.    *"
   echo "*                                                                          *"
-  echo "*     This script will install and configure your TurboGold masternodes.      *"
+  echo "*     This script will install and configure your TurboGold masternodes.   *"
   echo "****************************************************************************"
   echo "Welcome to the TurboGold masternode setup script"
   sleep 2
