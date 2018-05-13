@@ -43,7 +43,7 @@ config()  {
 }
 
 #This function adds a swap file
-add_swap  {
+add_swap()  {
   echo "ADDING 2GB SWAP FILE"
   sleep 2
   dd if=/dev/zero of=/mnt/turbogoldswap.swap bs=2M count=1000 >/dev/null 2>&1
